@@ -12,8 +12,6 @@ module Ruboty
 
    def self.validate_station(station)
     candidates = RouteAPI.search_station(station)
-    candidates.each do |a|
-    end
     # 複数候補が見つかるときもあるため
     !candidates.empty? && (candidates[0] == station)
    end
@@ -28,7 +26,7 @@ module Ruboty
     # 取得したjsonファイルが壊れているためパース
     candidates = []
     html.scan(/\[\'(.+?)\'\]/) do |matched|
-     candidates << matched[0]
+     candidates << matched[0].force_encoding('UTF-8')
     end
     candidates
    end
