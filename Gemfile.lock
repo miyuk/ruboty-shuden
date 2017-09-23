@@ -77,6 +77,7 @@ DEPENDENCIES
   rake (~> 10.0)
   ruboty-redis
   ruboty-shuden!
+  ruboty-slack_rtm
 
 BUNDLED WITH
    1.16.0.pre.2

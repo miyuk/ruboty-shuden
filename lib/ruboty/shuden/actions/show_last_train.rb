@@ -20,9 +20,13 @@ module Ruboty
             return
           end
           routes = RouteAPI.search_last_train(today, origin, dest)
-          routes.each do |route|
-            message.reply(route.pretty)
+          return unless routes
+          reply = format("*%sの終電[%s -> %s](%s)*\n", name, origin, dest, today)
+          routes.each_with_index do |route, i|
+            reply += format(">経路%d\n", i + 1)
+            reply += route.pretty
           end
+          message.reply(reply)
        end
       end
     end

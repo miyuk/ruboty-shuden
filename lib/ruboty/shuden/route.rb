@@ -35,13 +35,16 @@ module Ruboty
       end
 
       def pretty
-        text = ''
+        text = '```'
         @sections.each do |section|
-          text += format('%s(%s) -- ', section.origin.name, section.origin.platform)
-          text += format('%s[%s(%s)] -> ', section.way.line_name, section.way.time, section.way.duration)
+          origin = section.origin
+          way = section.way
+          dest = section.dest
+          text += format("%s(%s) -- %s[%s(%s)] -> %s(%s)\n",
+                         origin.name, origin.platform, way.line_name, way.time,
+                         way.duration, dest.name, dest.platform)
         end
-        last = @sections.last
-        text += format('%s(%s)', last.dest.name, last.dest.platform) if last
+        text += "```\n"
         text
       end
     end
