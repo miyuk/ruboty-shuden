@@ -14,7 +14,8 @@ module Ruboty
     candidates = RouteAPI.search_station(station)
     candidates.each do |a|
     end
-    candidates.length == 1
+    # 複数候補が見つかるときもあるため
+    !candidates.empty? && (candidates[0] == station)
    end
 
    # 駅名の候補検索
