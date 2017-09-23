@@ -6,7 +6,8 @@ module Ruboty
   module Handlers
     class Shuden < Base
       on(
-        /shuden\z/,
+        /.*(終電|shuden|traceroute).*/m,
+        all: true,
         name: 'show_last_train',
         description: '終電検索'
       )

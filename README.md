@@ -30,7 +30,7 @@ Or install it yourself as:
 ```
 3. search your last train
 ```ruby
-{botname} shuden
+shuden or traceroute or 終電
 ```
 ## Development
 
