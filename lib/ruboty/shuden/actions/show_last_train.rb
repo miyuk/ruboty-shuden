@@ -12,9 +12,8 @@ module Ruboty
      # 0時から2時なら終電が残っているはず
      today = now.to_date
      today -= 1 if now.hour.between?(0, 2)
-     id = message.from
      name = message.from_name
-     table = RouteTable.new(id, message.robot.brain)
+     table = RouteTable.new(name, message.robot.brain)
      origin, dest = table.load
      unless origin && dest
       message.reply(format("%sの経路はありません\nsave routeで登録してください", name))

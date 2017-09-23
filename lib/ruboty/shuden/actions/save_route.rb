@@ -15,11 +15,11 @@ module Ruboty
      err << origin unless RouteAPI.validate_station(origin)
      err << dest unless RouteAPI.validate_station(dest)
      unless err.empty?
-      message.reply(format("駅名が正しくありません: %s", err.join(', ')))
+      message.reply(format('駅名が正しくありません: %s', err.join(', ')))
       return
            end
      table.save(origin, dest)
-     message.reply("経路登録が完了しました")
+     message.reply('経路登録が完了しました')
      Ruboty::Shuden::Actions::ShowRoute.new(message).call
     end
    end
